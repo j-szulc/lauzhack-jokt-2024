@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="Assets/Fader.cs" />
     <Compile Include="Assets/Offset.cs" />
-    <Compile Include="Assets/Text-handler.cs" />
     <Compile Include="Assets/SceneSlideshowScript.cs" />
     <Compile Include="Assets/FillCanvas.cs" />
     <Reference Include="UnityEngine">

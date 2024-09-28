@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class TextHandler : MonoBehaviour
@@ -176,7 +177,7 @@ public class TextHandler : MonoBehaviour
             useInput = false;
         }
         Dat res = null;
-        if(subDialogueRoundCounter == 0){
+        if(subDialoguePath == 0){
             res = datList[roundCounter];
             roundCounter++;
         } else {

@@ -25,6 +25,8 @@ public class FillCanvas : MonoBehaviour
         RectTransform rectTransform = GetComponent<RectTransform>();
         rectTransform.offsetMin = new Vector2(leftOffsetPixels, bottomOffsetPixels);
         rectTransform.offsetMax = new Vector2(-rightOffsetPixels, -topOffsetPixels);
+        rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, canvasRectTransform.rect.width - (rightOffsetPixels + leftOffsetPixels));
+        rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, canvasRectTransform.rect.height - (topOffsetPixels + bottomOffsetPixels));
         rectTransform.localScale = Vector3.one;
     }
     

@@ -10,12 +10,11 @@ public class Fader : MonoBehaviour
     
     public int fadeFrameCount;
     
-    IEnumerator fade()
+    IEnumerator fade(int direction)
     {
         for (int i = 0; i < fadeFrameCount; i++)
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + (1.0f / fadeFrameCount));
-            Debug.Log(image.color);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + -direction * (1.0f / fadeFrameCount));
             yield return StartCoroutine("WaitForFixedUpdate");
         }
         SceneSlideshowScript.get().NextScene();
@@ -24,9 +23,10 @@ public class Fader : MonoBehaviour
     
     IEnumerator WaitAndFade()
     {
+        yield return fade(1);
         // suspend execution for 5 seconds
         yield return new WaitForSeconds(2);
-        StartCoroutine("fade");
+        yield return fade(-1);
         yield return null;
     }
 

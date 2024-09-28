@@ -180,7 +180,7 @@ public class TextHandler : MonoBehaviour
             res = datList[roundCounter];
             roundCounter++;
         } else {
-            res = subPathLists[subDialoguePath][subDialogueRoundCounter];
+            res = subPathLists[subDialoguePath-1][subDialogueRoundCounter];
             subDialogueRoundCounter++;
         }
         if(res.RequireChoice){

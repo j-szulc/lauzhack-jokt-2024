@@ -12,9 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneSlideshow.unity
     guid: 4d91b08af3c61483f93659bb97d79094
   - enabled: 1
-    path: Assets/Scenes/1.unity
+    path: Assets/Scenes/SlideTemplateScene.unity
     guid: 69f3c28aa797b4ae7a66d296023613fd
   - enabled: 1
-    path: Assets/Scenes/2.unity
-    guid: a12c86cc179e64f72bb45769c33f78b6
+    path: Assets/IntroScenes/1.unity
+    guid: afc7c0db8a14b4b569aae0dd739b9381
+  - enabled: 1
+    path: Assets/IntroScenes/2.unity
+    guid: 3337be7f3b3174fa8becc41e8afe0559
+  - enabled: 1
+    path: Assets/IntroScenes/3.unity
+    guid: 2d2264170a1db4b1c9cd9c3d1b1f2e6b
+  - enabled: 1
+    path: Assets/IntroScenes/4.unity
+    guid: 396e0fc40861b44dca90c97ac784ee0b
   m_configObjects: {}

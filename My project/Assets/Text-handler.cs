@@ -12,15 +12,20 @@ public class Text-handler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialize the array with a fixed size (e.g., 5 objects)
-        datArray = new Dat[5];
+        datList = new List<Dat>();
 
-        // Populate the array with Dat objects
-        datArray[0] = catSpeaking("newcomer eh ?", true, false, false);
-        datArray[1] = narratorSpeaking("yeah, I got hit by an asteroid on my way to my vacation and looking at my ship I will stay here for a long time", true, false, false, false);
-        datArray[2] = catSpeaking("Oh shi...It can\'t be... I mean how unfortunate! Today, I\'m feelin\' extra generous. Call me... the Good Sam... uh, Samaritan!", false, false, false);
-        datArray[3] = narratorSpeaking("?", true, false, false, false);
-        datArray[4] = catSpeaking("Lucky for you, I think... some screws should be... um, sufficient. They gotta be... around here... somewhere.", false, false, false);
+        // first scene        
+        datList.Add(catSpeaking("newcomer eh ?", true, false, false));
+        datList.Add(narratorSpeaking("yeah, I got hit by an asteroid on my way to my vacation and looking at my ship I will stay here for a long time", true, false, false, false));
+        datList.Add(catSpeaking("Oh shi...It can\'t be... I mean how unfortunate! Today, I\'m feelin\' extra generous. Call me... the Good Sam... uh, Samaritan!", false, false, false));
+        datList.Add(narratorSpeaking("?", true, false, false, false));
+        datList.Add(catSpeaking("Lucky for you, I think... some screws should be... um, sufficient. They gotta be... around here... somewhere.", false, false, false));
+        datList.Add(catSpeaking("Alrighty then! Jus\'... come back when ya... when ya got the screws, okay? iS aul goodman!", false, true, false));
+        datList.Add(narratorSpeaking("Great, a mechanic who's already drunk on a Tuesday morning who is going to fix my spaceship with ... some screws. but at this point, he's the only option I\'ve got.", false, false, false, false));
+
+        // second scene
+
+
     }
 
     public Dat queryData(){
@@ -36,6 +41,8 @@ public class Text-handler : MonoBehaviour
     Dat catSpeaking(string text, boolean enter, boolean leave, boolean requireChoice) {
         new Dat(text, "Cat",true, true, false, false, false, false, false, false, false, requireChoice);
     }
+
+    
 
     Dat narratorSpeaking(string text, boolean showCat, boolean showShark, boolean showMonkey, boolean requireChoice) {
         new Dat(text, "Narrator",false, showCat, false, false, showShark, false, false, showMonkey, false, requireChoice);

@@ -9,41 +9,51 @@ public class SceneSlideshowScript : MonoBehaviour
 {
     private static SceneSlideshowScript singleton;
 
-    private SceneSlideshowScript()
-    {
-        singleton = this;
-    }
-
     public static SceneSlideshowScript get()
     {
         return singleton;
     }
 
-    public static SlideData? getSlideData()
+    public static SlideData getSlideData()
     {
-        if(singleton is null)
-        {
-            return null;
-        }
-        return singleton.scenes[singleton.currentSceneIdx];
+        return singleton.scenes[singleton.currentSceneName];
     }
+
+    public string currentSceneName;
+    public List<SlideData> scenes_list;
+    public Dictionary<string, SlideData> scenes;
     
-    private int currentSceneIdx = -1;
-    public List<SlideData> scenes;
-    
-    public void NextScene()
+    public void ReloadCurrentScene()
     {
-        currentSceneIdx++;
-        if (currentSceneIdx < scenes.Count)
+        if (currentSceneName != "")
         {
-            SceneManager.LoadScene("SlideTemplateScene");
+            SlideData slideData = scenes[currentSceneName];
+            if (slideData.subscenes.Count == 0)
+            {
+                return;
+            }
+            SceneManager.LoadScene(slideData.subscenes[0]);
+            for (int i = 1; i < slideData.subscenes.Count; i++)
+            {
+                SceneManager.LoadScene(slideData.subscenes[i], LoadSceneMode.Additive);
+            }
         }
+    }
+    public void NextScene(string name){
+        currentSceneName = name;
+        ReloadCurrentScene();
     }
     
     private void Start()
     {
         DontDestroyOnLoad(this);
-        NextScene();
+        singleton = this;
+        scenes = new Dictionary<string, SlideData>();
+        foreach (var slide in scenes_list)
+        {
+            scenes[slide.name] = slide;
+        }
+        ReloadCurrentScene();
     }
     
 }

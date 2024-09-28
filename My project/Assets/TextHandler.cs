@@ -7,7 +7,7 @@ public class TextHandler : MonoBehaviour
     int roundCounter;
     int previousDecision;
     bool useInput;
-    int subDialoguePath
+    int subDialoguePath;
     List<Dat> datArray;
 
     // Start is called before the first frame update
@@ -42,12 +42,13 @@ public class TextHandler : MonoBehaviour
 
     public Dat queryData(int input) {
         Dat res = datArray[roundCounter];
-        // if(useInput){
+        if(useInput){
 
-        // }
-        // if(res.RequireChoice){
-        //     useInput = true;
-        // }
+
+        }
+        if(res.RequireChoice){
+            useInput = true;
+        }
         roundCounter++;
         return res;
     }

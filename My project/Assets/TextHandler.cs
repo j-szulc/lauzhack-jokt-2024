@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Text-handler : MonoBehaviour
+public class TextHandler : MonoBehaviour
 {
     int roundCounter = 0;
     int previousDecision = -1;
@@ -29,7 +29,7 @@ public class Text-handler : MonoBehaviour
     }
 
     public Dat queryData(){
-        return datArray[roundCounter]
+        return datArray[roundCounter];
     }
 
     // Update is called once per frame
@@ -38,13 +38,19 @@ public class Text-handler : MonoBehaviour
         
     }
 
-    Dat catSpeaking(string text, boolean enter, boolean leave, boolean requireChoice) {
-        new Dat(text, "Cat",true, true, false, false, false, false, false, false, false, requireChoice);
+    Dat catSpeaking(string text, bool enter, bool leave, bool requireChoice) {
+        new Dat(text, "Cat",enter, true, leave, false, false, false, false, false, false, requireChoice);
     }
 
-    
+    Dat SharkSpeaking(string text, bool enter, bool leave, bool requireChoice, bool showMonkey) {
+        new Dat(text, "Shark",true, false, false, true, enter, leave, showMonkey, false, false, requireChoice);
+    }
 
-    Dat narratorSpeaking(string text, boolean showCat, boolean showShark, boolean showMonkey, boolean requireChoice) {
+    Dat MonkeySpeaking(string text, bool enter, bool leave, bool requireChoice, bool showShark) {
+        new Dat(text, "Monkey",true, false, false, showShark, false, false, false, enter, leave, requireChoice);
+    }
+
+    Dat narratorSpeaking(string text, bool showCat, bool showShark, bool showMonkey, bool requireChoice) {
         new Dat(text, "Narrator",false, showCat, false, false, showShark, false, false, showMonkey, false, requireChoice);
     }
 

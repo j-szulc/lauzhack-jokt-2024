@@ -18,16 +18,25 @@ public class SceneSlideshowScript : MonoBehaviour
     {
         return singleton;
     }
+
+    public static SlideData? getSlideData()
+    {
+        if(singleton is null)
+        {
+            return null;
+        }
+        return singleton.scenes[singleton.currentSceneIdx];
+    }
     
     private int currentSceneIdx = -1;
-    public List<string> sceneOrder;
+    public List<SlideData> scenes;
     
     public void NextScene()
     {
         currentSceneIdx++;
-        if (currentSceneIdx < sceneOrder.Count)
+        if (currentSceneIdx < scenes.Count)
         {
-            SceneManager.LoadScene(sceneOrder[currentSceneIdx]);
+            SceneManager.LoadScene("SlideTemplateScene");
         }
     }
     

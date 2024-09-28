@@ -17,7 +17,10 @@ public class Fader : MonoBehaviour
             image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + -direction * (1.0f / fadeFrameCount));
             yield return new WaitForFixedUpdate();
         }
-        SceneSlideshowScript.get().NextScene();
+        if(SceneSlideshowScript.get() is not null)
+        {
+            SceneSlideshowScript.get().NextScene();
+        }
         yield return null;
     }
     
@@ -35,7 +38,7 @@ public class Fader : MonoBehaviour
         yield return StartCoroutine("WaitAndFade");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         return;
     }

@@ -194,11 +194,11 @@ public class TextHandler : MonoBehaviour
     }
 
     Dat sharkSpeaking(string text, bool enter, bool leave, bool requireChoice, bool showMonkey, bool finalMessage = false) {
-        return new Dat(text, "Blahaj",true, false, false, true, enter, leave, showMonkey, false, false, requireChoice, finalMessage);
+        return new Dat(text, "Blahaj",false, false, false, true, enter, leave, showMonkey, false, false, requireChoice, finalMessage);
     }
 
     Dat monkeySpeaking(string text, bool enter, bool leave, bool requireChoice, bool showShark, bool finalMessage = false) {
-        return new Dat(text, "Ham",true, false, false, showShark, false, false, false, enter, leave, requireChoice, finalMessage);
+        return new Dat(text, "Ham",false, false, false, showShark, false, false, true, enter, leave, requireChoice, finalMessage);
     }
 
     Dat narratorSpeaking(string text, bool showCat, bool showShark, bool showMonkey, bool requireChoice) {

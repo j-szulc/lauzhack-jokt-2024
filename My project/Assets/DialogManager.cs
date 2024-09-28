@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
+
+    private GameObject cat;
+    private GameObject shark;
+    private GameObject monkey;
     
     public TextHandler textHandler;
     
@@ -26,6 +30,9 @@ public class DialogManager : MonoBehaviour
         {
             Dat dat = textHandler.queryData(0);
             SetText(dat.Text);
+            monkey.SetActive(dat.ShowMonkey);
+            shark.SetActive(dat.ShowShark);
+            cat.SetActive(dat.ShowCat);
             yield return waitForKeyPress();
             if (dat.FinalMessage)
             {
@@ -40,6 +47,9 @@ public class DialogManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cat = GameObject.Find("cat");
+        monkey = GameObject.Find("monkey");
+        shark = GameObject.Find("shark");
         StartCoroutine("dialog");
     }
 

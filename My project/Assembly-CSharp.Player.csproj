@@ -50,6 +50,7 @@
     <Compile Include="Assets/Offset.cs" />
     <Compile Include="Assets/SlideDataScript.cs" />
     <Compile Include="Assets/SceneSlideshowScript.cs" />
+    <Compile Include="Assets/TextHandler.cs" />
     <Compile Include="Assets/FillCanvas.cs" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.48f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/Variations/mono/Managed/UnityEngine.dll</HintPath>

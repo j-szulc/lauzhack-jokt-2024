@@ -15,7 +15,7 @@ public class TextHandler : MonoBehaviour
     {
         roundCounter = 0;
         previousDecision = -1;
-        datList = new List<Dat>();
+        List<Dat> datList = new List<Dat>();
 
         // first scene        
         datList.Add(catSpeaking("newcomer eh ?", true, false, false));
@@ -37,7 +37,7 @@ public class TextHandler : MonoBehaviour
         datList.Add(narratorSpeaking("...", false, true, true, false));
         datList.Add(monkeySpeaking("So what ? Everyone knows you shark people are the ones causing all the trouble !", false, false, false, true));
         datList.Add(sharkSpeaking("That\'s B#&*sh%t !", false, false, false, true));
-        datList.add(new Dat(text,"Blahaj & Monkey",false, false, false, true, false, false, true, false, false, true));
+        datList.Add(new Dat("text","Blahaj & Monkey",false, false, false, true, false, false, true, false, false, true));
     }
 
     public Dat queryData(int input) {
@@ -53,26 +53,20 @@ public class TextHandler : MonoBehaviour
         return res;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     Dat catSpeaking(string text, bool enter, bool leave, bool requireChoice) {
-        new Dat(text,"Cat",true, enter, leave, false, false, false, false, false, false, requireChoice);
+        return new Dat(text,"Cat",true, enter, leave, false, false, false, false, false, false, requireChoice);
     }
 
     Dat sharkSpeaking(string text, bool enter, bool leave, bool requireChoice, bool showMonkey) {
-        new Dat(text, "Blahaj",true, false, false, true, enter, leave, showMonkey, false, false, requireChoice);
+        return new Dat(text, "Blahaj",true, false, false, true, enter, leave, showMonkey, false, false, requireChoice);
     }
 
     Dat monkeySpeaking(string text, bool enter, bool leave, bool requireChoice, bool showShark) {
-        new Dat(text, "Monkey",true, false, false, showShark, false, false, false, enter, leave, requireChoice);
+        return new Dat(text, "Monkey",true, false, false, showShark, false, false, false, enter, leave, requireChoice);
     }
 
     Dat narratorSpeaking(string text, bool showCat, bool showShark, bool showMonkey, bool requireChoice) {
-        new Dat(text, "Narrator",false, showCat, false, false, showShark, false, false, showMonkey, false, requireChoice);
+        return new Dat(text, "Narrator",false, showCat, false, false, showShark, false, false, showMonkey, false, requireChoice);
     }
 
 }

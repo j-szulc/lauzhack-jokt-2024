@@ -19,7 +19,6 @@ public class TextHandler : MonoBehaviour
         datList = new List<Dat>();
         subPathLists = new List<List<Dat>>();
 
-
         // first scene        
         datList.Add(catSpeaking("newcomer eh ?", true, false, false));
         datList.Add(narratorSpeaking("yeah, I got hit by an asteroid on my way to my vacation and looking at my ship I will stay here for a long time", true, false, false, false));
@@ -143,8 +142,6 @@ public class TextHandler : MonoBehaviour
     }
 
     public Dat queryData(int input = -1) {
-        Dat res = datArray[roundCounter];
-        roundCounter++;
         if(useInput){
             subDialogueRoundCounter = 0;
             if(input == 0){
@@ -158,6 +155,8 @@ public class TextHandler : MonoBehaviour
                     subDialoguePath = 5;
                 } else if(subDialoguePath == 8){
                     subDialoguePath = 4;   
+                } else {
+                    subDialoguePath = 11;
                 }
             } else if(input == 1){
                 if(subDialoguePath == 0){
@@ -170,9 +169,19 @@ public class TextHandler : MonoBehaviour
                     subDialoguePath = 10;
                 } else if(subDialoguePath == 8){
                     subDialoguePath = 9;   
+                } else {
+                    subDialoguePath = 12;
                 }
             }
             useInput = false;
+        }
+        Dat res = null;
+        if(subDialogueRoundCounter == 0){
+            res = datList[roundCounter];
+            roundCounter++;
+        } else {
+            res = subPathLists[subDialoguePath][subDialogueRoundCounter];
+            subDialogueRoundCounter++;
         }
         if(res.RequireChoice){
             useInput = true;
@@ -181,7 +190,7 @@ public class TextHandler : MonoBehaviour
     }
 
     Dat catSpeaking(string text, bool enter, bool leave, bool requireChoice) {
-        return new Dat(text,"Cat",true, enter, leave, false, false, false, false, false, false, requireChoice);
+        return new Dat(text,"Me-cat-nic",true, enter, leave, false, false, false, false, false, false, requireChoice);
     }
 
     Dat sharkSpeaking(string text, bool enter, bool leave, bool requireChoice, bool showMonkey) {

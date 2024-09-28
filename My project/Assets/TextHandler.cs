@@ -8,21 +8,17 @@ public class TextHandler : MonoBehaviour
     bool useInput;
     int subDialoguePath;
     int subDialogueRoundCounter;
-    List<Dat> datArray;
+    List<Dat> datList;
     List<List<Dat>> subPathLists;
 
     // Start is called before the first frame update
     void Start()
     {
         roundCounter = 0;
-<<<<<<< HEAD
         subDialogueRoundCounter = 0;
         datList = new List<Dat>();
         subPathLists = new List<List<Dat>>();
-=======
-        previousDecision = -1;
-        List<Dat> datList = new List<Dat>();
->>>>>>> e9bf2c95fa23d63ccb9d5e2d4e7ee80a51da35cb
+
 
         // first scene        
         datList.Add(catSpeaking("newcomer eh ?", true, false, false));
@@ -148,6 +144,7 @@ public class TextHandler : MonoBehaviour
 
     public Dat queryData(int input = -1) {
         Dat res = datArray[roundCounter];
+        roundCounter++;
         if(useInput){
             subDialogueRoundCounter = 0;
             if(input == 0){
@@ -180,7 +177,6 @@ public class TextHandler : MonoBehaviour
         if(res.RequireChoice){
             useInput = true;
         }
-        roundCounter++;
         return res;
     }
 

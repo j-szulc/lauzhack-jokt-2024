@@ -21,11 +21,7 @@ public class SceneSlideshowScript : MonoBehaviour
 
     public static SlideData? getSlideData()
     {
-        if(singleton is null)
-        {
-            return null;
-        }
-        return singleton.scenes[singleton.currentSceneIdx];
+        return singleton?.scenes[singleton.currentSceneIdx];
     }
     
     private int currentSceneIdx = -1;

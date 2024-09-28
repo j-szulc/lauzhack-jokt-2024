@@ -122,7 +122,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1325821618
+--- !u!1 &238966941
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,61 +130,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1325821619}
-  - component: {fileID: 1325821620}
+  - component: {fileID: 238966942}
   m_Layer: 0
-  m_Name: SceneSlideshowManager
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1325821619
+--- !u!4 &238966942
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325821618}
+  m_GameObject: {fileID: 238966941}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 363.72565, y: 189.00638, z: 0.6194232}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1325821620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325821618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0231effd6257c4a55bbb9f16e4f95a94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scenes:
-  - sprite: {fileID: 21300000, guid: 6ec781a2de07241daa916dc858c8a5e5, type: 3}
-    text: ' lorem'
-    fadeFrameCount: 120
-    sceneOverrideName: 
-  - sprite: {fileID: 21300000, guid: d4cb78c57d83c4b18a6d6aa0532a631e, type: 3}
-    text: ' ipsum'
-    fadeFrameCount: 120
-    sceneOverrideName: 1
-  - sprite: {fileID: 21300000, guid: 187106f9b6ba0437cac0f938d43a782f, type: 3}
-    text: dolores
-    fadeFrameCount: 120
-    sceneOverrideName: 
-  - sprite: {fileID: 21300000, guid: 6a1b1b9e1084c431887e129cf42e6295, type: 3}
-    text: superiori
-    fadeFrameCount: 120
-    sceneOverrideName: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1325821619}
+  - {fileID: 238966942}

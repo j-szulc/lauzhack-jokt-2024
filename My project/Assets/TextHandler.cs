@@ -230,7 +230,7 @@ public class Dat
                bool showMonkey, bool monkeyInScreen, bool monkeyOutScreen, 
                bool requireChoice, bool finalMessage = false)
     {
-        Text = text;
+        Text = characterSpeaking + " : " + text;
         CharacterSpeaking = characterSpeaking;
         ShowCat = showCat;
         CatInScreen = catInScreen;

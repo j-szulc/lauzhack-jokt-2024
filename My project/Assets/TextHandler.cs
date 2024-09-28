@@ -40,7 +40,7 @@ public class TextHandler : MonoBehaviour
         datList.Add(narratorSpeaking("...", false, true, true, false));
         datList.Add(monkeySpeaking("So what ? Everyone knows you shark people are the ones causing all the trouble !", false, false, false, true));
         datList.Add(sharkSpeaking("That\'s B#&*sh%t !", false, false, false, true));
-        datList.Add(new Dat("text","Blahaj & Monkey",false, false, false, true, false, false, true, false, false, true));
+        datList.add(new Dat("What do YOU say","Blahaj & Monkey",false, false, false, true, false, false, true, false, false, true));
 
         //sub list 1
         List<Dat> subPathList1 = new List<Dat>();

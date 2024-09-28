@@ -27,7 +27,14 @@ public class DialogManager : MonoBehaviour
             Dat dat = textHandler.queryData(0);
             SetText(dat.Text);
             yield return waitForKeyPress();
+            if (dat.FinalMessage)
+            {
+                break;
+            }
         }
+
+        string nextScene = SceneSlideshowScript.getSlideData().nextSlide;
+        SceneSlideshowScript.get().NextScene(nextScene);
     }
     
     // Start is called before the first frame update

@@ -127,7 +127,7 @@ public class TextHandler : MonoBehaviour
         subPathList11.Add(sharkSpeaking("We\'ll... uh, adapt! We always do!", false, false, false, true));
         subPathList11.Add(narratorSpeaking("Adapt to what, though? Dry land? This planet\'s only going to get worse for you.", true, true, false, false));
         subPathList11.Add(sharkSpeaking("uh, maybe you are right, newcomer.", false, false, false, true));
-        subPathList11.Add(sharkSpeaking("I\'ve heard you are looking for screws, since we will be leaving anyway. Might as well give it to you.", false, true, false, true));
+        subPathList11.Add(sharkSpeaking("I\'ve heard you are looking for screws, since we will be leaving anyway. Might as well give it to you.", false, true, false, true, true));
         subPathLists.Add(subPathList11);
 
         //sub list 12
@@ -137,7 +137,7 @@ public class TextHandler : MonoBehaviour
         subPathList12.Add(narratorSpeaking("Then why not make the next leap? There are plenty of fis.. planets in the galaxy.", true, true, false, false));
         subPathList12.Add(narratorSpeaking("You don\'t have to stay stuck here in the dust.", true, true, false, false));
         subPathList12.Add(sharkSpeaking("uh, maybe you are right, newcomer.", false, false, false, true));
-        subPathList12.Add(sharkSpeaking("I\'ve heard you are looking for screws, since we will be leaving anyway. Might as well give it to you.", false, true, false, true));
+        subPathList12.Add(sharkSpeaking("I\'ve heard you are looking for screws, since we will be leaving anyway. Might as well give it to you.", false, true, false, true, true));
         subPathLists.Add(subPathList12);
     }
 
@@ -193,16 +193,16 @@ public class TextHandler : MonoBehaviour
         return new Dat(text,"Me-cat-nic",true, enter, leave, false, false, false, false, false, false, requireChoice);
     }
 
-    Dat sharkSpeaking(string text, bool enter, bool leave, bool requireChoice, bool showMonkey) {
-        return new Dat(text, "Blahaj",true, false, false, true, enter, leave, showMonkey, false, false, requireChoice);
+    Dat sharkSpeaking(string text, bool enter, bool leave, bool requireChoice, bool showMonkey, bool finalMessage = false) {
+        return new Dat(text, "Blahaj",true, false, false, true, enter, leave, showMonkey, false, false, requireChoice, finalMessage);
     }
 
-    Dat monkeySpeaking(string text, bool enter, bool leave, bool requireChoice, bool showShark) {
-        return new Dat(text, "Monkey",true, false, false, showShark, false, false, false, enter, leave, requireChoice);
+    Dat monkeySpeaking(string text, bool enter, bool leave, bool requireChoice, bool showShark, bool finalMessage = false) {
+        return new Dat(text, "Ham",true, false, false, showShark, false, false, false, enter, leave, requireChoice, finalMessage);
     }
 
     Dat narratorSpeaking(string text, bool showCat, bool showShark, bool showMonkey, bool requireChoice) {
-        return new Dat(text, "Narrator",false, showCat, false, false, showShark, false, false, showMonkey, false, requireChoice);
+        return new Dat(text, "John",false, showCat, false, false, showShark, false, false, showMonkey, false, requireChoice);
     }
 
 }
@@ -221,12 +221,13 @@ public class Dat
     public bool MonkeyInScreen { get; set; }
     public bool MonkeyOutScreen { get; set; }
     public bool RequireChoice { get; set; }
+    public bool FinalMessage { get; set; }
 
     // Optional: constructor to initialize values
     public Dat(string text, string characterSpeaking, bool showCat, bool catInScreen, bool catOutScreen, 
                bool showShark, bool sharkInScreen, bool sharkOutScreen, 
                bool showMonkey, bool monkeyInScreen, bool monkeyOutScreen, 
-               bool requireChoice)
+               bool requireChoice, bool finalMessage = false)
     {
         Text = text;
         CharacterSpeaking = characterSpeaking;
@@ -240,6 +241,7 @@ public class Dat
         MonkeyInScreen = monkeyInScreen;
         MonkeyOutScreen = monkeyOutScreen;
         RequireChoice = requireChoice;
+        FinalMessage = finalMessage;
     }
 
     // Default constructor (optional)

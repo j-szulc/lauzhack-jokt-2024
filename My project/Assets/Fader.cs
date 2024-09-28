@@ -9,6 +9,7 @@ public class Fader : MonoBehaviour
     public Image image;
     
     public int fadeFrameCount;
+    public bool fadeOut;
     
     IEnumerator fade(int direction)
     {
@@ -17,22 +18,37 @@ public class Fader : MonoBehaviour
             image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + -direction * (1.0f / fadeFrameCount));
             yield return new WaitForFixedUpdate();
         }
-        SceneSlideshowScript.get().NextScene(SceneSlideshowScript.getSlideData().nextSlide);
         yield return null;
     }
     
-    IEnumerator WaitAndFade()
+    IEnumerator FadeOut()
     {
-        yield return fade(1);
-        // suspend execution for 5 seconds
-        yield return new WaitForSeconds(2);
         yield return fade(-1);
         yield return null;
     }
 
-    IEnumerator Start()
+    IEnumerator fade()
     {
-        yield return StartCoroutine("WaitAndFade");
+        yield return fade(1);
+    }
+    
+    private IEnumerator waitForKeyPress()
+    {
+        while (!Input.GetKeyDown(KeyCode.Space))
+        {
+            yield return null;
+        }
+        while (!Input.GetKeyUp(KeyCode.Space))
+        {
+            yield return null;
+        }
+        SceneSlideshowScript.get().NextScene(SceneSlideshowScript.getSlideData().nextSlide);
+    }
+
+    private void Start()
+    {
+        StartCoroutine("fade", 1);
+        StartCoroutine("waitForKeyPress");
     }
 
     private void FixedUpdate()

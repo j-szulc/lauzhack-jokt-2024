@@ -10,6 +10,7 @@ public class DialogManager : MonoBehaviour
     private GameObject monkey;
     private int button = -1;
     private GameObject btn_left;
+    private GameObject btn_right;
     
     public TextHandler textHandler;
     
@@ -21,6 +22,10 @@ public class DialogManager : MonoBehaviour
     private IEnumerator waitForKeyPress()
     {
         while (!Input.GetKeyDown(KeyCode.Space))
+        {
+            yield return null;
+        }
+        while (!Input.GetKeyUp(KeyCode.Space))
         {
             yield return null;
         }
@@ -43,8 +48,6 @@ public class DialogManager : MonoBehaviour
         while (true)
         {
             Dat dat = textHandler.queryData(button);
-            Debug.Log(dat.RequireChoice);
-            button = -1;
             SetText(dat.Text);
             monkey.SetActive(dat.ShowMonkey);
             shark.SetActive(dat.ShowShark);
@@ -52,8 +55,11 @@ public class DialogManager : MonoBehaviour
             if (dat.RequireChoice)
             {
                 btn_left.SetActive(true);
+                btn_right.SetActive(true);
+                button = -1;
                 yield return waitForButton();
                 btn_left.SetActive(false);
+                btn_right.SetActive(false);
                 Debug.Log(button);
             }
             else
@@ -62,7 +68,14 @@ public class DialogManager : MonoBehaviour
             }
             if (dat.FinalMessage)
             {
-                break;
+                if (button == 0)
+                {
+                    SceneSlideshowScript.get().NextScene("end_monkey1");
+                }
+                else if (button == 1)
+                {
+                    SceneSlideshowScript.get().NextScene("end_shark1");
+                }
             }
         }
 
@@ -78,6 +91,8 @@ public class DialogManager : MonoBehaviour
         shark = GameObject.Find("shark");
         btn_left = GameObject.Find("btn_left");
         btn_left.SetActive(false);
+        btn_right = GameObject.Find("btn_right");
+        btn_right.SetActive(false);
         StartCoroutine("dialog");
     }
 

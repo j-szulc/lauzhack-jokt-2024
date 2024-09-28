@@ -166,43 +166,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0231effd6257c4a55bbb9f16e4f95a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSceneName: dialog
+  currentSceneName: op1
   scenes_list:
   - name: op1
     subscenes:
     - SlideTemplateScene
     sprite: {fileID: 21300000, guid: 6ec781a2de07241daa916dc858c8a5e5, type: 3}
-    text: lorem
-    fadeFrameCount: 120
+    text: 'John: I just wanted to go on holiday '
+    fadeFrameCount: 20
     nextSlide: op2
   - name: op2
     subscenes:
     - SlideTemplateScene
     sprite: {fileID: 21300000, guid: d4cb78c57d83c4b18a6d6aa0532a631e, type: 3}
-    text: ipsum
-    fadeFrameCount: 120
+    text: "Let\u2019s just say that it did not go as planned. "
+    fadeFrameCount: 20
     nextSlide: op3
   - name: op3
     subscenes:
     - SlideTemplateScene
     sprite: {fileID: 21300000, guid: 187106f9b6ba0437cac0f938d43a782f, type: 3}
-    text: dolores
-    fadeFrameCount: 120
+    text: 'One of the ship''s boosters was completely destroyed '
+    fadeFrameCount: 20
     nextSlide: op4
   - name: op4
     subscenes:
     - SlideTemplateScene
     sprite: {fileID: 21300000, guid: 6a1b1b9e1084c431887e129cf42e6295, type: 3}
-    text: dolores
-    fadeFrameCount: 120
+    text: 'To take the edge off for a bit I decided to go to the closest bar I could
+      find. '
+    fadeFrameCount: 20
     nextSlide: dialog
   - name: dialog
     subscenes:
     - Dialog
     sprite: {fileID: 0}
     text: 
-    fadeFrameCount: 0
+    fadeFrameCount: 120
     nextSlide: 
+  - name: end_shark1
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: 3a35678f8638245e5816f63b2cb06e82, type: 3}
+    text: 
+    fadeFrameCount: 20
+    nextSlide: end_shark2
+  - name: end_shark2
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: f98543ac3c33c4241984bba57893b4ea, type: 3}
+    text: 
+    fadeFrameCount: 20
+    nextSlide: end1
+  - name: end_monkey1
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: 3a35678f8638245e5816f63b2cb06e82, type: 3}
+    text: 
+    fadeFrameCount: 20
+    nextSlide: end_monkey2
+  - name: end_monkey2
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: 2fcfb7ad861a946638436d7f2562e6d3, type: 3}
+    text: 
+    fadeFrameCount: 20
+    nextSlide: end1
+  - name: end1
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: 44bbdbb654fb64aa483e511b1d0787a7, type: 3}
+    text: 
+    fadeFrameCount: 20
+    nextSlide: end2
+  - name: end2
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: fc27bacc5ed5f4aa7ad1562692646b80, type: 3}
+    text: 
+    fadeFrameCount: 20
+    nextSlide: end2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

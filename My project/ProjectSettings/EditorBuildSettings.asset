@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneOverrides/1.unity
     guid: 9644d5d4390574697ab9b24c58b64547
+  - enabled: 1
+    path: Assets/Scenes/Dialog.unity
+    guid: 44a709e80d9524d1480911a01f57903b
   m_configObjects: {}

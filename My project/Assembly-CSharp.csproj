@@ -50,6 +50,7 @@
     <Compile Include="Assets/Offset.cs" />
     <Compile Include="Assets/SlideDataScript.cs" />
     <Compile Include="Assets/SceneSlideshowScript.cs" />
+    <Compile Include="Assets/DialogManager.cs" />
     <Compile Include="Assets/TextHandler.cs" />
     <Compile Include="Assets/FillCanvas.cs" />
     <None Include="Library/PackageCache/com.unity.modules.subsystems@1.0.0/package.json" />

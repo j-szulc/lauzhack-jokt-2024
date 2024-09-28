@@ -166,23 +166,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0231effd6257c4a55bbb9f16e4f95a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenes:
-  - sprite: {fileID: 21300000, guid: 6ec781a2de07241daa916dc858c8a5e5, type: 3}
-    text: ' lorem'
+  currentSceneName: dialog
+  scenes_list:
+  - name: op1
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: 6ec781a2de07241daa916dc858c8a5e5, type: 3}
+    text: lorem
     fadeFrameCount: 120
-    sceneOverrideName: 
-  - sprite: {fileID: 21300000, guid: d4cb78c57d83c4b18a6d6aa0532a631e, type: 3}
-    text: ' ipsum'
+    nextSlide: op2
+  - name: op2
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: d4cb78c57d83c4b18a6d6aa0532a631e, type: 3}
+    text: ipsum
     fadeFrameCount: 120
-    sceneOverrideName: 1
-  - sprite: {fileID: 21300000, guid: 187106f9b6ba0437cac0f938d43a782f, type: 3}
+    nextSlide: op3
+  - name: op3
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: 187106f9b6ba0437cac0f938d43a782f, type: 3}
     text: dolores
     fadeFrameCount: 120
-    sceneOverrideName: 
-  - sprite: {fileID: 21300000, guid: 6a1b1b9e1084c431887e129cf42e6295, type: 3}
-    text: superiori
+    nextSlide: op4
+  - name: op4
+    subscenes:
+    - SlideTemplateScene
+    sprite: {fileID: 21300000, guid: 6a1b1b9e1084c431887e129cf42e6295, type: 3}
+    text: dolores
     fadeFrameCount: 120
-    sceneOverrideName: 
+    nextSlide: dialog
+  - name: dialog
+    subscenes:
+    - Dialog
+    sprite: {fileID: 0}
+    text: 
+    fadeFrameCount: 0
+    nextSlide: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

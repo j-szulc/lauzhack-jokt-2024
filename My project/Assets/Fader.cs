@@ -17,10 +17,7 @@ public class Fader : MonoBehaviour
             image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + -direction * (1.0f / fadeFrameCount));
             yield return new WaitForFixedUpdate();
         }
-        if(SceneSlideshowScript.get() is not null)
-        {
-            SceneSlideshowScript.get().NextScene();
-        }
+        SceneSlideshowScript.get().NextScene(SceneSlideshowScript.getSlideData().nextSlide);
         yield return null;
     }
     
